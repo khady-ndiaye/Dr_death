@@ -21,14 +21,6 @@ dr-death/
 │   └── ...
 └── dr-death-dashboard.pbix    # Fichier Power BI principal
 ```
-
-## 🔗 Sommaire
-
-
-## 🔗 Sommaire
-<!-- Tu peux compléter cette section avec des liens vers les différentes parties du README -->
-
-
 ## Sommaire
 
 1. VEILLE TECHNOLOGIQUE SUR Power BI
