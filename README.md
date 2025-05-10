@@ -7,7 +7,7 @@ Quels types de personnes Harold Shipman a-t-il assassinées, et quand sont-elles
 
 Ce travail mêle analyse de données et visualisation interactive pour mieux comprendre les tendances, les profils de victimes, ainsi que les anomalies temporelles dans ses crimes.
 
-📁 Structure du repository
+## 📁 Structure du repository
 
 dr-death/
 ├── README.md                  # Présentation complète du projet
@@ -19,6 +19,10 @@ dr-death/
 │   ├── visualisation_2.png
 │   └── ...
 └── dr-death-dashboard.pbix    # Fichier Power BI principal
+
+## 🔗 Sommaire
+<!-- Tu peux compléter cette section avec des liens vers les différentes parties du README -->
+
 
 ## Sommaire
 
