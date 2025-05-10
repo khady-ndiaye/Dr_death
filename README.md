@@ -10,15 +10,15 @@ Ce travail mêle analyse de données et visualisation interactive pour mieux com
 📁 Structure du repository
 
 dr-death/
-├── README.md                 
-├── datasets/                  
+├── README.md                  # Présentation complète du projet
+├── datasets/                  # Données brutes utilisées
 │   ├── shipman-confirmed-victims.csv
 │   └── shipman-times-comparison.csv
-├── rapport/                   
+├── rapport/                   # Captures du dashboard Power BI
 │   ├── visualisation_1.png
 │   ├── visualisation_2.png
 │   └── ...
-└── dr-death-dashboard.pbix    
+└── dr-death-dashboard.pbix    # Fichier Power BI principal
 
 ## Sommaire
 
