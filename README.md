@@ -1,5 +1,25 @@
 # 🩺 Dr Death - Analyse Power BI du tueur en série Harold Shipman
 
+🎯 Objectif du projet
+Ce projet a pour objectif d’explorer les données liées aux meurtres commis par Harold Shipman, considéré comme le tueur en série le plus prolifique du Royaume-Uni. À travers la création d’un dashboard interactif sur Power BI, nous cherchons à répondre à la question centrale :
+
+Quels types de personnes Harold Shipman a-t-il assassinées, et quand sont-elles mortes ?
+
+Ce travail mêle analyse de données et visualisation interactive pour mieux comprendre les tendances, les profils de victimes, ainsi que les anomalies temporelles dans ses crimes.
+
+📁 Structure du repository
+
+dr-death/
+├── README.md                 
+├── datasets/                  
+│   ├── shipman-confirmed-victims.csv
+│   └── shipman-times-comparison.csv
+├── rapport/                   
+│   ├── visualisation_1.png
+│   ├── visualisation_2.png
+│   └── ...
+└── dr-death-dashboard.pbix    
+
 ## Sommaire
 
 1. VEILLE TECHNOLOGIQUE SUR Power BI
