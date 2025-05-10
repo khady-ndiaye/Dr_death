@@ -9,6 +9,7 @@ Ce travail mêle analyse de données et visualisation interactive pour mieux com
 
 ## 📁 Structure du repository
 
+```
 dr-death/
 ├── README.md                  # Présentation complète du projet
 ├── datasets/                  # Données brutes utilisées
@@ -19,6 +20,10 @@ dr-death/
 │   ├── visualisation_2.png
 │   └── ...
 └── dr-death-dashboard.pbix    # Fichier Power BI principal
+```
+
+## 🔗 Sommaire
+
 
 ## 🔗 Sommaire
 <!-- Tu peux compléter cette section avec des liens vers les différentes parties du README -->
