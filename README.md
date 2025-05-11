@@ -1,145 +1,188 @@
-# 🩺 Dr Death - Analyse Power BI du tueur en série Harold Shipman
+# 🩺 Dr Death - Power BI Analysis of Serial Killer Harold Shipman
 
-🎯 Objectif du projet
-Ce projet a pour objectif d’explorer les données liées aux meurtres commis par Harold Shipman, considéré comme le tueur en série le plus prolifique du Royaume-Uni. À travers la création d’un dashboard interactif sur Power BI, nous cherchons à répondre à la question centrale :
+🎯 Project Objective
+This project aims to explore data related to the murders committed by Harold Shipman, considered the most prolific serial killer in the United Kingdom. Through the creation of an interactive dashboard in Power BI, we seek to answer the central question:
 
-Quels types de personnes Harold Shipman a-t-il assassinées, et quand sont-elles mortes ?
+What types of people did Harold Shipman kill, and when did they die?
 
-Ce travail mêle analyse de données et visualisation interactive pour mieux comprendre les tendances, les profils de victimes, ainsi que les anomalies temporelles dans ses crimes.
+This work combines data analysis and interactive visualization to better understand trends, victim profiles, and temporal anomalies in his crimes.
 
-## 📁 Structure du repository
+## 📁 Repository Structure
 
 ```
 dr-death/
-├── README.md                  # Présentation complète du projet
-├── datasets/                  # Données brutes utilisées
+├── README.md                  # Full project presentation
+├── datasets/                  # Raw data used
 │   ├── shipman-confirmed-victims.csv
 │   └── shipman-times-comparison.csv
-├── rapport/                   # Captures du dashboard Power BI
+├── rapport/                   # Power BI dashboard screenshots
 │   ├── visualisation_1.png
 │   ├── visualisation_2.png
 │   └── ...
-└── dr-death-dashboard.pbix    # Fichier Power BI principal
+└── dr-death-dashboard.pbix    # Main Power BI file
 ```
-## Sommaire
 
-1. VEILLE TECHNOLOGIQUE SUR Power BI
+## Summary
+
+1. TECHNOLOGICAL MONITORING ON Power BI
 2. SHIPMAN ANALYSIS
 
-   1. CHARGEMENT DES DONNÉES
-   2. NETTOYAGES ET TRANSFORMATIONS DES DONNÉES AVEC POWER QUERY
-   3. VISUALISATIONS
+   1. DATA LOADING
+   2. DATA CLEANING AND TRANSFORMATION WITH POWER QUERY
+   3. VISUALIZATIONS
 
-      * PROFIL DES VICTIMES
-      * ANALYSE TEMPORELLE
-      * ANALYSE DES LIEUX DE DÉCÈS
-      * ÉTUDE DE LA CORRÉLATION
-      * COMPARAISONS SHIPMAN VS AUTRES MÉDECINS
+      * VICTIM PROFILE
+      * TEMPORAL ANALYSIS
+      * ANALYSIS OF PLACES OF DEATH
+      * CORRELATION STUDY
+      * COMPARISONS SHIPMAN VS OTHER DOCTORS
    4. CONCLUSION
 
-## 1. VEILLE TECHNOLOGIQUE SUR Power BI
+## 1. TECHNOLOGICAL MONITORING ON Power BI
 
-**Power BI** est une solution de Business Intelligence développée par Microsoft, conçue pour transformer des données brutes en visualisations interactives et décisionnelles. Elle permet de centraliser, nettoyer, analyser et présenter des données issues de sources hétérogènes.
+**Power BI** is a Business Intelligence solution developed by Microsoft, designed to transform raw data into interactive and decision-making visualizations. It allows centralizing, cleaning, analyzing, and presenting data from heterogeneous sources.
 
-🔧 **Fonctionnalités principales**
+🔧 **Main Features**
 
-* **Importation de données multiples** (Excel, CSV, bases de données, API…)
-* **Power Query** pour le nettoyage et la transformation des données
-* **DAX (Data Analysis Expressions)** pour créer des mesures et indicateurs personnalisés
-* **Canvas interactif** pour construire des rapports dynamiques avec filtres, segments et drill-down
+* **Multiple data import** (Excel, CSV, databases, API…)
+* **Power Query** for data cleaning and transformation
+* **DAX (Data Analysis Expressions)** to create custom measures and indicators
+* **Interactive canvas** to build dynamic reports with filters, segments, and drill-down
 
-✅ **Avantages**
+✅ **Advantages**
 
-* **Connexion et transformation de données multiples** facilement, sans affecter les bases d'origine
-* **Visualisations dynamiques et interactives**, accessibles même pour les utilisateurs non techniques
-* **Intégration fluide avec l'écosystème Microsoft** (Excel, Teams, SharePoint, Azure…)
-* **Capacité à combiner différents types de données** (structurées et semi-structurées) dans une même analyse
-* Interface intuitive avec glisser-déposer
-* Performances solides même sur des jeux de données conséquents
+* **Easily connect and transform multiple data sources** without affecting the original databases
+* **Dynamic and interactive visualizations**, accessible even to non-technical users
+* **Seamless integration with Microsoft ecosystem** (Excel, Teams, SharePoint, Azure…)
+* **Ability to combine different data types** (structured and semi-structured) in the same analysis
+* Intuitive drag-and-drop interface
+* Strong performance even on large datasets
 
-❌ **Inconvénients**
+❌ **Disadvantages**
 
-* Courbe d'apprentissage pour les fonctions avancées (notamment DAX et M)
-* Limitations dans la version gratuite concernant le partage et la collaboration
-* Moins adapté aux modèles prédictifs complexes par rapport à des outils comme Python ou R
+* Learning curve for advanced functions (notably DAX and M)
+* Limitations in the free version for sharing and collaboration
+* Less suited for complex predictive models compared to tools like Python or R
 
-**Contexte d'usage ici** Dans cette étude, Power BI est utilisé pour analyser des données sensibles et complexes liées à une série de crimes. L'objectif est de **faire parler les données** pour mieux comprendre les schémas criminels de Harold Shipman : profils des victimes, anomalies horaires, lieux de décès, comparaisons régionales.
+**Usage context here** In this study, Power BI is used to analyze sensitive and complex data related to a series of crimes. The goal is to **make the data speak** to better understand Harold Shipman's criminal patterns: victim profiles, time anomalies, places of death, regional comparisons.
 
 ## 2. SHIPMAN ANALYSIS
 
-### 📚 Contexte de l'affaire
+### 📚 Case Context
 
-Harold Shipman, surnommé **« Dr Death »**, est considéré comme le **tueur en série le plus prolifique de l'histoire du Royaume-Uni**. Médecin généraliste respecté à Hyde, dans le Grand Manchester, il a assassiné au moins **215 patients entre 1975 et 1998**, principalement des femmes âgées, en leur administrant des doses létales de morphine.
+Harold Shipman, nicknamed **"Dr Death"**, is considered the **most prolific serial killer in UK history**. A respected general practitioner in Hyde, Greater Manchester, he murdered at least **215 patients between 1975 and 1998**, mainly elderly women, by administering lethal doses of morphine.
 
-Son comportement a commencé à éveiller des soupçons lorsqu'il a falsifié le testament d'une patiente, ce qui a déclenché une enquête plus large. Celle-ci a révélé des **modifications frauduleuses dans les dossiers médicaux**, des anomalies horaires dans les décès, et des motifs répétitifs dans le profil des victimes. L'affaire a bouleversé le système médical britannique, révélant les dangers d'un **abus de confiance institutionnalisé**.
+His behavior began to raise suspicions when he falsified a patient's will, triggering a wider investigation. This revealed **fraudulent changes in medical records**, time anomalies in deaths, and repetitive patterns in victim profiles. The case shook the British medical system, exposing the dangers of **institutionalized abuse of trust**.
 
-Ce projet vise à **analyser ces éléments de manière visuelle et interactive**, à l'aide de Power BI, pour dégager les **schémas sous-jacents de ses meurtres**.
+This project aims to **analyze these elements visually and interactively** using Power BI to identify the **underlying patterns of his murders**.
 
-### 2.1 CHARGEMENT DES DONNÉES
+### 2.1 DATA LOADING
 
-Deux fichiers principaux ont été utilisés pour conduire l'analyse :
+Two main files were used to conduct the analysis:
 
 📁 `shipman-confirmed-victims.csv`
-Ce fichier contient les données des **victimes officiellement identifiées** de Harold Shipman entre 1975 et 1998.
+This file contains data on **officially identified victims** of Harold Shipman between 1975 and 1998.
 
-* **Colonnes clés** : `Name`, `Date_of_death`, `Age`, `Gender`, `Place_of_death`, `Postal_code`
-* **Objectif** : Permet de dresser un **profil statistique des victimes**, de visualiser la **chronologie des décès** et d'identifier des **patterns géographiques**.
+* **Key columns**: `Name`, `Date_of_death`, `Age`, `Gender`, `Place_of_death`, `Postal_code`
+* **Objective**: Build a **statistical profile of the victims**, visualize the **timeline of deaths**, and identify **geographic patterns**.
 
 📁 `shipman-times-comparison.csv`
-Ce fichier compare la répartition horaire des décès chez les patients de Shipman avec ceux d'autres médecins généralistes du Grand Manchester.
+This file compares the hourly distribution of deaths among Shipman's patients with those of other general practitioners in Greater Manchester.
 
-* **Colonnes clés** : `Hour`, `Shipman_deaths`, `Other_GPs_deaths`
-* **Objectif** : Mettre en évidence une **anomalie horaire**, indiquant que Shipman faisait mourir ses patients à des heures spécifiques, contrairement à la norme.
+* **Key columns**: `Hour`, `Shipman_deaths`, `Other_GPs_deaths`
+* **Objective**: Highlight a **time-based anomaly**, showing that Shipman killed his patients at specific hours, unlike the norm.
 
-### 2.2 NETTOYAGES ET TRANSFORMATIONS DES DONNÉES AVEC POWER QUERY
+### 2.2 DATA CLEANING AND TRANSFORMATION WITH POWER QUERY
 
-Vide
+The `shipman-confirmed-victims.csv` file contains information on each confirmed victim of Harold Shipman, including the date and place of death, age, gender, and derived elements for analysis. After verification, the columns are properly formatted.
 
-### 2.3 VISUALISATIONS
+Transformations were applied to enrich the analysis:
 
-Vide
+* **Derived columns**: extraction of **day of the week** (`JourSemaine`) and **month** (`Mois`) from the date of death (`DateofDeath`), with numeric equivalents (`JourSemaineNum`, `MoisNum`) for sorting.
+* **Categorical columns**: creation of **age brackets** (`ageBracket`) and textual display of **gender** (`gender2`).
+* **Fine temporal columns**: addition of `fractionalDeathYear` for chronological decimal reading.
+* **Calculated measures** in Power BI:
+
+  * `DateMin` and `DateMax` to delimit Shipman's period of activity.
+  * `PeriodeActivite`: dynamic display of this period in dashboards.
+
+This cleaning enabled a solid structure for temporal, demographic, and geographic analyses.
+
+### 2.3 VISUALIZATIONS
+
+Several DAX measures were created to summarize and explore the data:
+
+* **Total number of victims**
+* **Average age at death**
+* **Period of activity** between the first (`DateMin`) and last (`DateMax`) victim.
+
+Main visualizations produced:
+
+1. **Overview**:
+
+   * Number of victims, average age, activity period (first to last death).
+
+2. **Temporal analysis**:
+
+   * Heatmap crossing day of week and month of death.
+   * Comparison of hourly death frequency between Shipman and other doctors (column charts).
+
+3. **Demographic analysis**:
+
+   * Distribution of victims by **gender**, **age bracket**, and **place of death**.
+
+4. **Mapping**:
+
+   * Map of deaths by location type: home, hospital, nursing home, etc.
+
+#### Key observations:
+
+* **Critical time slots**: Deaths mostly occurred in the morning, a unique pattern of Shipman's profile.
+* **Targeted victims**: Mainly elderly women living alone at home.
+* **Intense period**: High concentration of deaths between 1993 and 1998.
+* **Dominant days & months**: Tuesdays and Thursdays show mortality peaks, especially from January to March.
 
 ## 2.4 CONCLUSION
 
-✅ **1. Un ciblage opportuniste et méthodique**
-L'analyse croisée du **graphique sur le genre et l'âge des victimes** avec les données démographiques et juridiques britanniques révèle un **schéma de prédation précis** : Harold Shipman ciblait en priorité des **femmes âgées**, veuves ou proches de l'être. Cela s'explique par plusieurs facteurs :
+✅ **1. Opportunistic and methodical targeting**
+The cross-analysis of the **victim gender and age chart** with British demographic and legal data reveals a **precise predatory pattern**: Harold Shipman primarily targeted **elderly women**, widows or close to becoming so. This is due to several factors:
 
-* En Angleterre, **70 % des femmes survivent à leur conjoint**, ce qui les rend souvent seules et vulnérables.
-* Leur **espérance de vie plus longue (85 ans vs 79 ans pour les hommes)** les expose davantage à une prise en charge médicale prolongée.
-* En droit anglais, **l'héritage revient au dernier survivant du couple**, ce qui peut motiver la falsification de testaments. Shipman exploitait ainsi une population isolée, peu contestataire et souvent sans témoin direct, maximisant ses chances d'agir sans éveiller de soupçon.
+* In England, **70% of women outlive their spouse**, making them often alone and vulnerable.
+* Their **longer life expectancy (85 vs. 79 years for men)** exposes them to extended medical care.
+* Under English law, **inheritance goes to the surviving spouse**, which may motivate will falsification. Shipman thus exploited a population that was isolated, unlikely to complain, and often without direct witnesses, maximizing his chances to act undetected.
 
-✅ **2. Un mode opératoire calé sur le rythme d'un professionnel "ordinaire"**
-Le graphique sur la **répartition hebdomadaire des meurtres** montre une concentration nette des décès entre **le lundi et le vendredi** (plus de 90 % des cas), avec une **chute drastique le week-end** (à peine 8,8 % les samedi et dimanche cumulés).
+✅ **2. An M.O. aligned with a "regular" professional schedule**
+The chart on the **weekly distribution of murders** shows a sharp concentration of deaths from **Monday to Friday** (over 90% of cases), with a **drastic drop on weekends** (barely 8.8% on Saturday and Sunday combined).
 
-Ce schéma suggère une logique organisationnelle claire :
+This pattern suggests a clear organizational logic:
 
-* **Shipman agissait comme un "professionnel des heures ouvrables"**, planifiant ses meurtres sur son temps de travail officiel, au rythme des consultations.
-* **Les week-ends étaient "off"**, probablement pour préserver son image familiale ou éviter toute logistique compliquée (moins d'interventions médicales prévues, davantage de proches présents au domicile des patients, etc.).
+* **Shipman acted like an "office-hours professional"**, planning murders during his official work time, aligned with consultations.
+* **Weekends were "off"**, probably to preserve his family image or avoid logistical complications (fewer scheduled medical interventions, more relatives present at patient homes, etc.).
 
-Cette répartition **quasi-bureaucratique des homicides** est troublante : elle montre que Shipman **intégrait le meurtre à sa routine médicale**, comme un acte "technique", inséré dans une journée de travail classique. Ce fonctionnement froid et méthodique renforce le caractère prédateur, **déshumanisé et parfaitement dissimulé** de ses actes.
+This **quasi-bureaucratic distribution of homicides** is disturbing: it shows that Shipman **integrated murder into his medical routine**, as a "technical" act, inserted into a classic workday. This cold, methodical behavior reinforces the **predatory, dehumanized, and perfectly concealed** nature of his actions.
 
-✅ **3. Une prédation horaire ciblant les moments de vulnérabilité maximale**
-L'analyse de la **distribution horaire des décès** révèle un pic saisissant entre 14h et 17h, avec un maximum vers 15h, en contraste net avec la répartition équilibrée des décès naturels. Cette concentration temporelle s'explique par plusieurs facteurs stratégiques :
+✅ **3. Time-based predation targeting moments of maximum vulnerability**
+The analysis of the **hourly death distribution** reveals a striking peak between 2 PM and 5 PM, with a maximum around 3 PM, in sharp contrast to the balanced distribution of natural deaths. This temporal concentration is explained by several strategic factors:
 
-* **Shipman alignait ses meurtres sur ses visites à domicile de l'après-midi**, après ses consultations matinales en cabinet, créant ainsi une fenêtre d'action prévisible et sécurisée.
-* Cette plage horaire offrait une **conjonction optimale d'isolement des victimes**, souvent des femmes âgées seules à leur domicile à ce moment précis de la journée.
-* L'après-midi constituait un **moment idéal pour administrer la diamorphine létale**, signer les certificats de décès et falsifier les dossiers médicaux sans témoins.
-* Ce schéma temporel lui permettait d'**intercaler ses meurtres entre des visites légitimes**, normalisant ainsi ces événements dans sa routine professionnelle.
+* **Shipman aligned murders with his afternoon home visits**, after morning office consultations, creating a predictable and safe window of action.
+* This time slot offered **optimal isolation of victims**, often elderly women alone at home at that precise time.
+* The afternoon was an **ideal time to administer lethal diamorphine**, sign death certificates, and falsify medical records without witnesses.
+* This temporal pattern allowed him to **intercalate murders among legitimate visits**, normalizing these events in his professional routine.
 
-Cette signature statistique, identifiée plus tard par le professeur David Spiegelhalter, démontre à quel point Shipman avait méthodiquement intégré ses actes criminels à une pratique médicale en apparence irréprochable. L'heure des décès constitue ainsi un "marqueur comportemental" révélateur, qui aurait pu - selon les experts - permettre sa détection dès 1996, évitant potentiellement des dizaines de victimes supplémentaires.
+This statistical signature, later identified by Professor David Spiegelhalter, demonstrates how Shipman methodically integrated his crimes into an outwardly irreproachable medical practice. The time of deaths thus becomes a revealing "behavioral marker," which experts say could have enabled his detection as early as 1996, potentially preventing dozens of additional victims.
 
-✅ **4. Une fluctuation révélatrice : l'impact des plaintes et de l'installation en cabinet indépendant**
-L'analyse du **graphique de distribution annuelle des meurtres** révèle une anomalie significative : un **net ralentissement de l'activité criminelle entre 1990 et 1992**. Cette période coïncide précisément avec deux événements majeurs :
+✅ **4. A revealing fluctuation: the impact of complaints and opening an independent practice**
+The analysis of the **annual murder distribution chart** reveals a significant anomaly: a **clear slowdown in criminal activity between 1990 and 1992**. This period coincides precisely with two major events:
 
-* **Des plaintes formelles** déposées par des patients auprès de l'autorité sanitaire locale de Donneybrook en 1990 et 1992, suggérant une période de surveillance accrue.
-* La préparation puis l'ouverture de son cabinet indépendant au 21 Market Street à Hyde le 1er janvier 1992, après avoir exercé au centre médical de Donneybrook.
+* **Formal complaints** lodged by patients with the Donneybrook local health authority in 1990 and 1992, suggesting a period of increased scrutiny.
+* Preparation then opening of his independent practice at 21 Market Street in Hyde on January 1, 1992, after working at the Donneybrook Medical Centre.
 
-Cette **baisse temporaire d'activité criminelle** s'explique par plusieurs facteurs stratégiques :
+This **temporary decrease in criminal activity** can be explained by several strategic factors:
 
-* Shipman a probablement adopté une **posture de prudence extrême** suite aux plaintes, conscient d'être potentiellement sous observation.
-* La période de transition professionnelle exigeait une **image irréprochable** pour attirer de nouveaux patients vers sa pratique indépendante.
-* L'établissement d'un nouveau cabinet demandait un **investissement logistique et administratif** considérable, réduisant ses opportunités criminelles.
+* Shipman likely adopted an **extremely cautious posture** following complaints, aware he might be under observation.
+* The professional transition period required an **impeccable image** to attract new patients to his private practice.
+* Setting up a new practice required **considerable logistical and administrative investment**, reducing his criminal opportunities.
 
-Le graphique montre ensuite une **reprise progressive** dès 1992-1993, qui s'accélère dramatiquement après 1995 pour atteindre un pic effroyable de près de 40 victimes en 1997. Cette escalade suggère que Shipman, une fois solidement établi dans son cabinet privé et ayant retrouvé un sentiment de sécurité, a non seulement repris ses activités meurtrières mais les a intensifiées de façon alarmante, fort d'une confiance renouvelée et d'une autonomie professionnelle complète.
+The chart then shows a **gradual resumption** from 1992–1993, dramatically accelerating after 1995 to reach a horrifying peak of nearly 40 victims in 1997. This escalation suggests that once firmly established in his private office and feeling secure again, Shipman not only resumed his murderous activities but intensified them alarmingly, buoyed by renewed confidence and full professional autonomy.
 
-Cette fluctuation statistique illustre parfaitement la **nature calculatrice et adaptative** de Shipman, capable de moduler temporairement son comportement criminel en fonction des risques perçus, tout en maintenant sa détermination meurtrière sur le long terme.
+This statistical fluctuation perfectly illustrates the **calculating and adaptive nature** of Shipman, capable of temporarily adjusting his criminal behavior based on perceived risks while maintaining his murderous determination in the long term.
