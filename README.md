@@ -1,4 +1,5 @@
 # 🩺 Dr Death - Power BI Analysis of Serial Killer Harold Shipman
+![Pals Analysis Banner](img/dashboard.png)
 
 🎯 Project Objective
 This project aims to explore data related to the murders committed by Harold Shipman, considered the most prolific serial killer in the United Kingdom. Through the creation of an interactive dashboard in Power BI, we seek to answer the central question:
